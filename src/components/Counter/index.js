@@ -15,16 +15,16 @@ class Counter extends Component {
 
   increment = () => {
     this.setState((state)=>{
-      const {count} = state;
-      const newCount = count+1;
+      const {count,value} = state;
+      const newCount = count + {value};
       return {count: newCount}
     });
   };
 
   decrement = () => {
     this.setState((state)=>{
-      const {count} = state;
-      const newCount = count-1;
+      const {count,value} = state;
+      const newCount = count-{value};
       return {count: newCount}
     });
   };
