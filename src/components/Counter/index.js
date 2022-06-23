@@ -8,21 +8,29 @@ class Counter extends Component {
       isAdd: true,
     };
   }
-
   switchState = () => {
     const { isAdd } = this.state;
     this.setState({ isAdd: !isAdd });
   };
 
- 
   increment = () => {
-    this.setState({ counter: this.state.counter + 1 });
+    this.setState((state)=>{
+      const {count} = state;
+      const newCount = count+1;
+      return {count: newCount}
+    });
   };
+
   decrement = () => {
-    this.setState({ counter: this.state.counter - 1 });
+    this.setState((state)=>{
+      const {count} = state;
+      const newCount = count-1;
+      return {count: newCount}
+    });
   };
-  
- additionAndSubstruction = () => {
+
+
+  additionAndSubstruction = () => {
     const { isAdd } = this.state;
     if (isAdd) {
       this.increment();
@@ -38,8 +46,10 @@ class Counter extends Component {
           <h1>Counter</h1>
           <h2>{count}</h2>
 
-          <button onClick={this.additionAndSubstruction}>+/-</button>
-          <button onClick={this.switchState({isAdd})}>Change mode</button>
+          <button onClick={this.additionAndSubstruction}>
+            {isAdd ? "+" : "-"}
+          </button>
+          <button onClick={this.switchState}>Change mode</button>
         </div>
       </>
     );
