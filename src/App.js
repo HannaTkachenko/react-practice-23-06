@@ -1,10 +1,10 @@
 
 import './App.css';
-import Counter from "./components/Counter";
+import Step from "./components/Step";
 
 function App() {
   return (
-   <Counter/>
+   <Step/>
   );
 }
 
